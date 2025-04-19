@@ -20,7 +20,7 @@ interface FiltersProps<T extends string> {
 }
 
 export const Filters = <T extends string>({ filters, onFilterChange, onResetAll }: FiltersProps<T>) => {
-  const firstFilterButtonRef = useRef<HTMLButtonElement>(null);
+  const firstFilterButtonRef = useRef<HTMLButtonElement | null | undefined>(null);
   const filterOptionRefs = useRef<Record<string, HTMLButtonElement[]>>({});
 
   const toggleFilterValue = (filterKey: string, value: T) => {
@@ -157,7 +157,7 @@ export const Filters = <T extends string>({ filters, onFilterChange, onResetAll 
                 variant="secondary"
                 className="flex items-center gap-1 cursor-pointer hover:text-white hover:bg-red-500/90 transition-colors"
                 onClick={() => toggleFilterValue(filter.key, value)}
-                onKeyDown={(e) => handleBadgeKeyDown(e, filter.key, value)}
+                onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => handleBadgeKeyDown(e, filter.key, value)}
                 tabIndex={0}
                 role="button"
                 aria-label={`Remove ${value} filter`}
@@ -243,7 +243,7 @@ export const Filters = <T extends string>({ filters, onFilterChange, onResetAll 
                 variant="secondary"
                 className="flex items-center gap-1 cursor-pointer hover:text-white hover:bg-red-500/90 transition-colors"
                 onClick={() => toggleFilterValue(filter.key, value)}
-                onKeyDown={(e) => handleBadgeKeyDown(e, filter.key, value)}
+                onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => handleBadgeKeyDown(e, filter.key, value)}
                 tabIndex={0}
                 role="button"
                 aria-label={`Remove ${value} filter`}
