@@ -11,6 +11,7 @@ import CalendarInput from "./inputs/CalendarInput";
 import { useAppointments } from "@/context/AppointmentProvider";
 import { Doctor } from "@/types";
 import { toast } from "react-toastify";
+import { AppointmentsList } from "./AppointmentList";
 
 type FormData = z.infer<typeof meetingSchema>;
 
@@ -21,7 +22,7 @@ const MeetingForm = ({ doctor }: { doctor: Doctor }) => {
       dateOption: "preset",
     },
   });
-  const { addAppointment } = useAppointments();
+  const { addAppointment, appointments } = useAppointments();
 
   const { handleSubmit, watch } = methods;
   const dateOption = watch("dateOption");
@@ -104,6 +105,12 @@ const MeetingForm = ({ doctor }: { doctor: Doctor }) => {
           </form>
         </Form>
       </FormProvider>
+      {appointments.length > 0 && (
+        <div className="space-y-4 flex flex-col gap-1 my-5">
+          <h2 className=" text-2xl font-semibold">My Appointments</h2>
+          <AppointmentsList />
+        </div>
+      )}
     </div>
   );
 };
