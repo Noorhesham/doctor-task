@@ -92,7 +92,7 @@ export const Filters = <T extends string>({ filters, onFilterChange, onResetAll 
               <Badge
                 key={`${filter.key}-${value}`}
                 variant="secondary"
-                className="flex items-center gap-1 cursor-pointer hover:bg-red-500/90 transition-colors"
+                className="flex items-center gap-1 cursor-pointer hover:text-white hover:bg-red-500/90 transition-colors"
                 onClick={() => toggleFilterValue(filter.key, value)}
               >
                 {value}

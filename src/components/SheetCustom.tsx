@@ -1,6 +1,5 @@
 import React from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
-import MaxWidthWrapper from "./MaxWidthWrapper";
 
 const SheetCustom = ({
   btn,
@@ -17,13 +16,16 @@ const SheetCustom = ({
     <div>
       <Sheet>
         <SheetTrigger asChild>{btn}</SheetTrigger>
-        <SheetContent side={side || "bottom"} className="h-[80vh] overflow-y-auto">
+        <SheetContent
+          side={side || "bottom"}
+          className={` ${side === "bottom" ? "h-[80vh] " : "h-[100vh] "} overflow-y-auto`}
+        >
           <SheetHeader>
             <SheetTitle className="text-left flex justify-between items-center">
               <span>{header}</span>
             </SheetTitle>
           </SheetHeader>
-          <MaxWidthWrapper className="py-4 space-y-6">{content}</MaxWidthWrapper>
+          <div className="py-4  px-5 space-y-6">{content}</div>
         </SheetContent>
       </Sheet>
     </div>

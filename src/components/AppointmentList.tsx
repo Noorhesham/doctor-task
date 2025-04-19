@@ -7,9 +7,7 @@ export const AppointmentsList = () => {
   const { appointments, removeAppointment } = useAppointments();
 
   return (
-    <div className="mt-8">
-      <h2 className="text-xl font-semibold mb-4">My Appointments</h2>
-
+    <div className="">
       {appointments.length === 0 ? (
         <p className="text-muted-foreground">No appointments booked yet</p>
       ) : (
