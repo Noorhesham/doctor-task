@@ -6,14 +6,6 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "jsx": "react-jsx", // أو "react" إذا كنت تستخدم React 16
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "module": "ESNext",
-    "target": "ESNext",
-    "strict": false, // or disable specific strict flags
-    
-    "skipLibCheck": true
+    }
   }
 }
